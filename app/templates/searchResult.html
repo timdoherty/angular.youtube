@@ -1,9 +1,9 @@
 <div style="clear:both;">
     <div style="float:left;margin: 5px 0;">
-        <img ng-src="{{video.media$group.media$thumbnail[1].url}}" ng-click="setCurrent(video.source);" width="120"/>
+        <img ng-src="{{video.media$group.media$thumbnail[1].url}}" ng-click="setCurrent(video.source)" width="120"/>
     </div>
     <div style="float:left;margin-left:5px;">
-        <button class="btn btn-link">{{video.title.$t}}</button><br>
+        <button class="btn btn-link" ng-click="setCurrent(video.source)">{{video.title.$t}}</button><br>
         by {{video.author[0].name.$t}} - {{video.yt$statistics.viewCount}} views<br>
         {{video.media$group.media$description.$t.substr(0, 50)}}
     </div>

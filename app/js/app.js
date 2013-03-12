@@ -12,6 +12,8 @@ define(function (require) {
   var youTubeCtrl = require('./controllers/youTube');
   require('./directives/appVersion');
   require('./directives/searchResult');
+  require('./directives/relatedVideo');
+  require('./directives/comment');
   require('./directives/keyPress');
   require('./filters/interpolate');
   require('./services/version');
@@ -22,7 +24,8 @@ define(function (require) {
 //    $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'myCtrl1'});
 //    $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'myCtrl2'});
     $routeProvider.when('/', {templateUrl: 'partials/partial3.html', controller: 'YouTubeCtrl'});
-    $routeProvider.when('/:videoID', {templateUrl: 'partials/player.html', controller: 'YouTubeCtrl'});
+    $routeProvider.when('/:searchTerm', {templateUrl: 'partials/partial3.html', controller: 'YouTubeCtrl'});
+    $routeProvider.when('/video/:videoID', {templateUrl: 'partials/player.html', controller: 'YouTubeCtrl'});
 
     $routeProvider.otherwise({redirectTo: '/'});
   }]);
