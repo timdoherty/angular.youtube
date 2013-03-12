@@ -12,17 +12,19 @@ define(function (require) {
   var youTubeCtrl = require('./controllers/youTube');
   require('./directives/appVersion');
   require('./directives/searchResult');
+  require('./directives/keyPress');
   require('./filters/interpolate');
   require('./services/version');
 
 // Declare app level module which depends on filters, and services
   var m = angular.module('myApp', ['controllers', 'filters', 'services', 'directives']);
   m.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'myCtrl1'});
-    $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'myCtrl2'});
-    $routeProvider.when('/view3', {templateUrl: 'partials/partial3.html', controller: 'YouTubeCtrl'});
+//    $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'myCtrl1'});
+//    $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'myCtrl2'});
+    $routeProvider.when('/', {templateUrl: 'partials/partial3.html', controller: 'YouTubeCtrl'});
+    $routeProvider.when('/:videoID', {templateUrl: 'partials/player.html', controller: 'YouTubeCtrl'});
 
-    $routeProvider.otherwise({redirectTo: '/view1'});
+    $routeProvider.otherwise({redirectTo: '/'});
   }]);
 
   return m;
