@@ -1,0 +1,149 @@
+/* app css stylesheet */
+
+
+.video-thumb {
+    position: relative;
+}
+.yt-thumb-default-120 {
+    height: 67px;
+    width: 120px;
+}
+.yt-thumb-square-48 {
+    height: 48px;
+    width: 48px;
+}
+.ux-thumb {
+    background: none repeat scroll 0 0 #F1F1F1;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+.yt-thumb-clip {
+    bottom: -100px;
+    left: -100px;
+    position: absolute;
+    right: -100px;
+    text-align: center;
+    top: -100px;
+    white-space: nowrap;
+    word-break: normal;
+}
+
+
+.yt-thumb-clip-inner {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.ux-thumb .vertical-align {
+    height: 100%;
+}
+.yt-thumb-clip img, .yt-thumb-clip .vertical-align {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.video-time {
+    background-color: #000000;
+    border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF !important;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    height: 14px;
+    line-height: 14px;
+    opacity: 0.75;
+    padding: 0 4px;
+    vertical-align: top;
+}
+.video-time {
+    margin-right: 0;
+    margin-top: 0;
+}
+.video-time, .video-actions {
+    bottom: 2px;
+    position: absolute;
+    right: 2px;
+}
+
+.video-list-item {
+    margin-bottom: 15px;
+    position: relative;
+}
+.video-list-item .title {
+    color: #333333;
+    font-size: 13px;
+    font-weight: bold;    cursor: pointer;
+    display: block;
+    line-height: 1.2;
+    margin-bottom: 2px;
+    max-height: 2.4em;
+    overflow: hidden;
+}
+
+.video-list-item .stat {
+    color: #999999;
+    font-size: 11px;
+    display: block;
+    height: 1.4em;
+    line-height: 1.4em;
+    white-space: nowrap;
+}
+
+.video-list-item .ux-thumb-wrap, .video-list-item .user-thumb-large, .video-list-item .yt-pl-thumb {
+    float: left;
+    margin: 0 8px 0 0;
+}
+.ux-thumb-wrap {
+    display: inline-block;
+    position: relative;
+}
+
+.video-list-item a {
+    padding: 0 5px;
+}
+.video-list-item a {
+    color: #333333;
+    display: block;
+    overflow: hidden;
+    padding: 0 5px;
+    position: relative;
+    text-decoration: none;
+}
+a {
+    /*color: #438BC5;*/
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.comment {
+    margin: 0 0 24px;
+    position: relative;
+}
+
+.yt-user-photo {
+    position: absolute;
+}
+
+.author {
+    font-weight: bold;
+    padding-right: 9px;
+    vertical-align: baseline;
+}
+.comment-text, .comment .author {
+    font-size: 13px;
+    line-height: 17px;
+}
+.comment .comment-show-hide, .comment .time {
+    font-size: 11px;
+    margin: 0 0.5em;
+}
+
+.comment-text, .comment .author {
+    font-size: 13px;
+    line-height: 17px;
+}

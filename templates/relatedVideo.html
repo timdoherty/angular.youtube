@@ -1,0 +1,19 @@
+
+<a href='#/video/{{video.source}}'>
+    <span class="ux-thumb-wrap">
+        <span class="video-thumb ux-thumb yt-thumb-default-120 ">
+            <span class="yt-thumb-clip">
+                <span class="yt-thumb-clip-inner">
+                    <img width="120" alt="Thumbnail" ng-src="{{video.media$group.media$thumbnail[1].url}}" ng-click="setCurrent(video.source);">
+                    <span class="vertical-align">
+                </span>
+                </span>
+            </span>
+        </span>
+        <span class="video-time">{{video.duration}}</span>
+    </span>
+    <span class="title" title="{{video.title.$t.substr(0, 30)}}">{{video.title.$t.substr(0, 20)}}</span>
+    <span class="stat">by {{video.author[0].name.$t}}</span>
+    <span class="stat"> {{video.yt$statistics.viewCount}} views </span>
+</a>
+

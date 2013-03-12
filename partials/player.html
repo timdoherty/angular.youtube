@@ -1,0 +1,29 @@
+<div class="control-group">
+    <div class="controls">
+        <div class="input-append">
+            <input id="inputIcon" type="text" ng-model="searchTerm" ng-enter="searchRedirect()">
+            <span class="add-on btn" ng-click="searchRedirect()"><i class="icon-search"></i></span>
+        </div>
+    </div>
+</div>
+
+<div style="clear: both">
+<div style="float:left;width:600px;">
+    <iframe width="560" height="386"
+            src="http://www.youtube.com/embed/{{currentVideo.source}}?html5=1&theme=dark&showinfo=0&modestbranding=1&controls=1"
+            allowfullscreen></iframe>
+    <h4>{{currentVideo.title.$t}}</h4>
+    <ul class="unstyled">
+        <li class="comment" ng-repeat="comment in comments">
+            <div class="commentBody">{{comment}}</div>
+        </li>
+    </ul>
+</div>
+<div style="float:left; margin-left:15px;width:300px;">
+    <ul class="unstyled">
+        <li class="video-list-item" ng-repeat="video in videos">
+            <div class="relatedVideo">{{video}}</div>
+        </li>
+    </ul>
+</div>
+</div>
