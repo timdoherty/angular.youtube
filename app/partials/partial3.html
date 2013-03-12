@@ -1,18 +1,30 @@
-<input type="text" ng-model="searchTerm"/><button ng-click="search()">search</button>
+<div class="control-group">
+    <!--<label class="control-label" for="inputIcon">Email address</label>-->
 
-        <div style="clear: both"></div>
-<div style="float:left;">
-    <iframe width="560" height="386" src="http://www.youtube.com/embed/{{currentVideo.source}}?html5=1&theme=dark&showinfo=0&modestbranding=1&controls=0" allowfullscreen></iframe>
-</div>
-        <div style="float:left; margin-left:15px;">
-<ul style="list-style: none;">
-<li ng-repeat="video in videos">
-    <!--<span ng-bind-html-unsafe="video.content.$t"></span>-->
-    <img src="{{video.media$group.media$thumbnail[1].url}}" ng-click="setCurrent();"/>
-
-    <!--<div>-->
-        <!--<iframe width="300" height="187" src="http://www.youtube.com/embed/{{video.source}}?html5=1&theme=dark&showinfo=0&modestbranding=1&controls=0" allowfullscreen></iframe>-->
-    <!--</div>-->
-</li>
-</ul>
+    <div class="controls">
+        <div class="input-append">
+            <input id="inputIcon" type="text" ng-model="searchTerm">
+            <span class="add-on" ng-click="search()"><i class="icon-search"></i></span>
         </div>
+    </div>
+</div>
+
+<div style="clear: both"></div>
+<!--<div style="float:left;">-->
+<!--<iframe width="560" height="386"-->
+<!--src="http://www.youtube.com/embed/{{currentVideo.source}}?html5=1&theme=dark&showinfo=0&modestbranding=1&controls=0"-->
+<!--allowfullscreen></iframe>-->
+<!--</div>-->
+<div style="float:left; margin-left:15px;">
+    <ul class="unstyled">
+        <li ng-repeat="video in videos">
+            <div class="searchResult">{{video}}</div>
+            <!--<span ng-bind-html-unsafe="video.content.$t"></span>-->
+            <!--<img ng-src="{{video.media$group.media$thumbnail[1].url}}" ng-click="setCurrent();"/>-->
+
+            <!--<div>-->
+            <!--<iframe width="300" height="187" src="http://www.youtube.com/embed/{{video.source}}?html5=1&theme=dark&showinfo=0&modestbranding=1&controls=0" allowfullscreen></iframe>-->
+            <!--</div>-->
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,10 @@
+<div style="clear:both;">
+    <div style="float:left;">
+        <img ng-src="{{video.media$group.media$thumbnail[1].url}}" ng-click="setCurrent();" width="120"/>
+    </div>
+    <div style="float:left;">
+        <button class="btn btn-link">{{video.title.$t}}</button><br>
+        by {{video.author[0].name.$t}} - {{video.yt$statistics.viewCount}} views<br>
+        {{video.media$group.media$description.$t.substr(0, 50)}}
+    </div>
+</div>

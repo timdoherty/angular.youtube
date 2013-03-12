@@ -31,6 +31,10 @@ define(function (require) {
         });
       };
 
+      $scope.setCurrent = function() {
+        $scope.currentVideo = $scope.videos[2];
+      };
+
       $scope.search();
     }
   );

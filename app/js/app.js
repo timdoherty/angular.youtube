@@ -11,6 +11,7 @@ define(function (require) {
   var MyCtrl2 = require('./controllers/c2');
   var youTubeCtrl = require('./controllers/youTube');
   require('./directives/appVersion');
+  require('./directives/searchResult');
   require('./filters/interpolate');
   require('./services/version');
 
