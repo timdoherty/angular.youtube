@@ -11,7 +11,6 @@ define(function (require) {
 
   //local variables
 
-  var query = 'vai';
   var controller = controllers.controller('YouTubeCtrl', function ($scope, $location, $routeParams, $http) {
       $scope.searchTerm = 'pat metheny';
       $scope.startIndex = 1;

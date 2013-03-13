@@ -1,6 +1,8 @@
 # angular.youtube - an AngularJS demo using YouTube feeds
 
-Built from the Angular-Seed repo
+Built from the Angular-Seed project
+
+View the running app [here] (http://tdoherty.github.com/angular.youtube)
 
 ### Running the app during development
 
