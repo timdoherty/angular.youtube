@@ -7,11 +7,14 @@
     </div>
 </div>
 
-<div style="clear: both"></div>
-<div style="float:left; margin-left:15px;">
+<div class="search-header">
+    Page {{currentPage}} of about {{totalItems}} results
+</div>
+<div class="primary-col">
     <ul class="unstyled">
-        <li ng-repeat="video in videos">
+        <li class="yt-lockup2 yt-lockup2-video yt-uix-tile context-data-item clearfix" ng-repeat="video in videos">
             <div class="searchResult">{{video}}</div>
         </li>
     </ul>
 </div>
+<div class="pager" style="width:640px;text-align:left;">{{$scope}}</div>

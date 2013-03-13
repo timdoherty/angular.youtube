@@ -14,10 +14,10 @@ define(function (require) {
   var query = 'vai';
   var controller = controllers.controller('YouTubeCtrl', function ($scope, $location, $routeParams, $http) {
       $scope.searchTerm = 'pat metheny';
-
-      var playlistURL = function () {
-        return 'http://gdata.youtube.com/feeds/videos?vq=' + $scope.searchTerm + '&format=5&max-results=20&alt=json-in-script&callback=?';
-      };
+      $scope.startIndex = 1;
+      $scope.totalItems = 0;
+      $scope.pageSize = 20;
+      $scope.currentPage = 1;
 
 //--Local functions-----------------------------------------------------------------------------------------------------
       function setCurrentVideo(response) {
@@ -44,6 +44,8 @@ define(function (require) {
         });
         $scope.videos = entries;
         $scope.currentVideo = entries[0];
+        $scope.totalItems = data.feed.openSearch$totalResults.$t;
+        $scope.currentPage = parseInt($scope.startIndex / $scope.pageSize) + 1;
         $scope.$$phase || $scope.$digest();
       }
 
@@ -85,7 +87,7 @@ define(function (require) {
 
 //--$scope functions----------------------------------------------------------------------------------------------------
       $scope.search = function () {
-        var url =  'http://gdata.youtube.com/feeds/videos?vq=' + $scope.searchTerm + '&format=5&max-results=20&alt=json-in-script&callback=JSON_CALLBACK';
+        var url =  'http://gdata.youtube.com/feeds/videos?vq=' + $scope.searchTerm + '&format=5&max-results=20&start-index=' + $scope.startIndex + '&alt=json-in-script&callback=JSON_CALLBACK';
         $http.jsonp(url)
           .then(setVideos);
       };
@@ -109,6 +111,11 @@ define(function (require) {
           return val.source === id;
         });
         return video;
+      };
+
+      $scope.page = function (start) {
+        $scope.startIndex = start;
+        $scope.search();
       };
 
       if ($routeParams.videoID) {
