@@ -103,6 +103,9 @@
     position: relative;
 }
 
+a.ux-thumb-wrap {
+    text-decoration: none;
+}
 .video-list-item a {
     padding: 0 5px;
 }
@@ -146,4 +149,82 @@ a {
 .comment-text, .comment .author {
     font-size: 13px;
     line-height: 17px;
+}
+
+.clearfix:after {
+    clear: both;
+}
+.clearfix:before, .clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix:before, .clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.yt-uix-tile {
+    cursor: pointer;
+}
+.yt-lockup2 {
+    padding: 10px 15px;
+}
+
+.yt-lockup2 .yt-lockup2-thumbnail {
+    float: left;
+    margin-right: 10px;
+    text-align: right;
+    width: 185px;
+}
+
+.yt-thumb-default-185 {
+    height: 104px;
+    width: 185px;
+}
+
+.yt-lockup2 .yt-lockup2-content {
+    padding-left: 195px;
+}
+
+.yt-lockup2-meta, .yt-lockup2-description, .yt-lockup2-badges {
+    color: #222222;
+    font-size: 12px;
+    margin: 6px 0 0;
+}
+
+.yt-lockup2-description {
+    color: #555555;
+    line-height: 14px;
+    word-wrap: break-word;
+}
+
+
+.yt-lockup2-meta, .yt-lockup2-description, .yt-lockup2-badges {
+    color: #222222;
+    font-size: 12px;
+    margin: 6px 0 0;
+}
+
+.primary-col {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #FFFFFF;
+    border-color: -moz-use-text-color #E2E2E2 #E2E2E2;
+    border-image: none;
+    border-radius: 0 0 3px 3px;
+    border-right: 1px solid #E2E2E2;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    display: inline-block;
+    width: 640px;
+}
+
+
+.search-header {
+    border-bottom: 1px solid #F1F1F1;
 }

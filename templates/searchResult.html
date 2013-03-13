@@ -1,10 +1,36 @@
-<div style="clear:both;">
-    <div style="float:left;margin: 5px 0;">
-        <img ng-src="{{video.media$group.media$thumbnail[1].url}}" ng-click="setCurrent(video.source)" width="120"/>
+<div>
+    <div class="yt-lockup2-thumbnail">
+        <a class="ux-thumb-wrap yt-uix-sessionlink yt-uix-contextlink contains-addto" href="#/video/{{video.source}}">
+        <span class="video-thumb ux-thumb yt-thumb-default-185 ">
+            <span class="yt-thumb-clip">
+                <span class="yt-thumb-clip-inner">
+                    <img width="185" ng-src="{{video.media$group.media$thumbnail[0].url}}" alt="Thumbnail">
+                    <span class="vertical-align"></span>
+                </span>
+            </span>
+        </span>
+            <span class="video-time">16:01</span>
+        </a>
     </div>
-    <div style="float:left;margin-left:5px;">
-        <button class="btn btn-link" ng-click="setCurrent(video.source)">{{video.title.$t}}</button><br>
-        by {{video.author[0].name.$t}} - {{video.yt$statistics.viewCount}} views<br>
-        {{video.media$group.media$description.$t.substr(0, 50)}}
+
+    <div class="yt-lockup2-content">
+        <h5 class="yt-lockup2-title" style="margin:0;">
+            <a href="#/video/{{video.source}}" title="{{video.title.$t}}">{{video.title.$t}}</a>
+        </h5>
+        <p class="yt-lockup2-meta"> by <strong>{{video.author[0].name.$t}}</strong>
+            <span class="metadata-separator">•</span>
+            1 year ago
+            <span class="metadata-separator">•</span>
+            {{video.yt$statistics.viewCount}} views
+        </p>
+
+        <p dir="ltr" class="yt-lockup2-description">{{video.media$group.media$description.$t.substr(0, 50)}}</p>
+
+        <div class="yt-lockup2-badges">
+            <ul class="item-badge-line">
+                <li class="item-badge-label ">HD</li>
+            </ul>
+        </div>
     </div>
 </div>
+

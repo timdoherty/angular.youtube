@@ -1,0 +1,20 @@
+<div class="control-group">
+    <div class="controls">
+        <div class="input-append">
+            <input id="inputIcon" type="text" ng-model="searchTerm" ng-enter="search()">
+            <span class="add-on btn" ng-click="search()"><i class="icon-search"></i></span>
+        </div>
+    </div>
+</div>
+
+<div class="search-header">
+    Page {{currentPage}} of about {{totalItems}} results
+</div>
+<div class="primary-col">
+    <ul class="unstyled">
+        <li class="yt-lockup2 yt-lockup2-video yt-uix-tile context-data-item clearfix" ng-repeat="video in videos">
+            <div class="searchResult">{{video}}</div>
+        </li>
+    </ul>
+</div>
+<div class="pager" style="width:640px;text-align:left;">{{$scope}}</div>
