@@ -10,7 +10,7 @@ define(function (require) {
 
   //local variables
 
-  var controller = controllers.controller('YouTubeCtrl', function ($scope, $location, $routeParams, $http) {
+  var controller = controllers.controller('YouTubeCtrl', ['$scope', '$location', '$routeParams', '$http', function ($scope, $location, $routeParams, $http) {
       $scope.searchTerm = 'pat metheny';
       $scope.startIndex = 1;
       $scope.totalItems = 0;
@@ -56,9 +56,9 @@ define(function (require) {
         $scope.$parent.searchTerm = $scope.searchTerm = $routeParams.searchTerm;
       }
       $scope.search();
-    }
+    }]
   );
-  controller.$inject = ['$scope', '$location', '$routeParams', '$http'];
+//  controller.$inject = ['$scope', '$location', '$routeParams', '$http'];
   return controller;
 
 });
