@@ -8,7 +8,7 @@ define(function (require) {
   var controllers = require('./controllers');
   var utils = require('../common/utils');
 
-  var controller = controllers.controller('YTCurrentCtrl', function ($scope, $location, $routeParams, $http) {
+  var controller = controllers.controller('YTCurrentCtrl', ['$scope', '$location', '$routeParams', '$http', function ($scope, $location, $routeParams, $http) {
       $scope.searchTerm = $scope.$parent.searchTerm || 'pat metheny';
 
 //--Local functions-----------------------------------------------------------------------------------------------------
@@ -78,10 +78,10 @@ define(function (require) {
         console.log($routeParams.videoID);
         $scope.getByID($routeParams.videoID);
       }
-    }
+    }]
   );
-  controller.$inject = ['$scope', '$location', '$routeParams', '$http'];
-  return controller;
+//  controller.$inject = ['$scope', '$location', '$routeParams', '$http'];
+//  return controller;
 
 
 });

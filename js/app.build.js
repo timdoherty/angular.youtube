@@ -11,7 +11,7 @@
       exports: 'angular'
     }
   },
-  optimize: "none", //"uglify", "closure" (Java Only), "closure.keepLines" (Java Only), "none",
+  optimize: "uglify", //"uglify", "closure" (Java Only), "closure.keepLines" (Java Only), "none",
   skipDirOptimize: true,
   modules: [
     {

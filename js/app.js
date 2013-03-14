@@ -24,5 +24,7 @@ define(function (require) {
     $routeProvider.otherwise({redirectTo: '/'});
   }]);
 
+//  m.$inject = ['$routeProvider'];
+
   return m;
 });

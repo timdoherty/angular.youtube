@@ -1,7 +1,6 @@
 require(
   {
     paths: {
-      'jquery': '../lib/jquery/jquery.min',
       'angular': '../lib/angular/angular',
       'text': '../lib/require/text'
     },
