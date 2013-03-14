@@ -8,7 +8,7 @@ define(function (require) {
   var services = require('./services/services');
   var directives = require('./directives/directives');
   var youTubeCtrl = require('./controllers/youTube');
-  require('./directives/appVersion');
+  require('./controllers/ytCurrentVideo');
   require('./directives/searchResult');
   require('./directives/relatedVideo');
   require('./directives/pager');
@@ -20,7 +20,7 @@ define(function (require) {
   m.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {templateUrl: 'partials/search.html', controller: 'YouTubeCtrl'});
     $routeProvider.when('/:searchTerm', {templateUrl: 'partials/search.html', controller: 'YouTubeCtrl'});
-    $routeProvider.when('/video/:videoID', {templateUrl: 'partials/player.html', controller: 'YouTubeCtrl'});
+    $routeProvider.when('/video/:videoID', {templateUrl: 'partials/player.html', controller: 'YTCurrentCtrl'});
     $routeProvider.otherwise({redirectTo: '/'});
   }]);
 
