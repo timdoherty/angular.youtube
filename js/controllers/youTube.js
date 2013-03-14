@@ -4,14 +4,12 @@
 define(function (require) {
 
   //module dependencies
-  var $ = require('jquery');
   var angular = require('angular');
   var controllers = require('./controllers');
-  var _ = require('underscore');
+  var utils = require('../common/utils');
 
   //local variables
 
-  var query = 'vai';
   var controller = controllers.controller('YouTubeCtrl', function ($scope, $location, $routeParams, $http) {
       $scope.searchTerm = 'pat metheny';
       $scope.startIndex = 1;
@@ -20,28 +18,20 @@ define(function (require) {
       $scope.currentPage = 1;
 
 //--Local functions-----------------------------------------------------------------------------------------------------
-      function setCurrentVideo(response) {
-        var data = response.data;
-        var paths = data.entry.id.$t.split('/');
-        console.log(data);
-        $scope.currentVideo = data.entry;
-        $scope.currentVideo.source = paths[paths.length-1];
-
-        //TODO: get related videos...
-        getRelatedVideos($scope.currentVideo);
-        getComments($scope.currentVideo);
-      }
-
       function setVideos(response) {
         var data = response.data;
         var entries = data.feed.entry;
-        $.each(entries, function(index, value) {
-          var paths = value.id.$t.split('/');
+        var i = entries.length;
+        var entry;
+        var paths;
 
-          value.source = paths[paths.length-1];
+        while (i--) {
+          entry = entries[i];
+          paths = entry.id.$t.split('/');
+          entry.source = paths[paths.length-1];
+          entry.duration = utils.getDuration(entry.media$group.yt$duration.seconds);
+        }
 
-          //durations
-        });
         $scope.videos = entries;
         $scope.currentVideo = entries[0];
         $scope.totalItems = data.feed.openSearch$totalResults.$t;
@@ -49,68 +39,12 @@ define(function (require) {
         $scope.$$phase || $scope.$digest();
       }
 
-      function getRelatedVideos(video) {
-        var url = video.id.$t + '/related' + '?format=5&alt=json-in-script&callback=JSON_CALLBACK';
-        $http.jsonp(url)
-          .then(setRelatedVideos);
-      }
-
-      function setRelatedVideos(response) {
-        var data = response.data;
-        var entries = data.feed.entry;
-        $.each(entries, function(index, value) {
-          var paths = value.id.$t.split('/');
-          var seconds = value.media$group.yt$duration.seconds;
-          var minutes;
-          value.source = paths[paths.length-1];
-
-          minutes = parseInt(seconds / 60);
-          seconds = '' + (seconds % 60);
-          if (seconds.length === 1) { seconds = '0' + seconds; }
-          value.duration = minutes + ':' + seconds;
-
-        });
-        $scope.videos = entries;
-        $scope.$$phase || $scope.$digest();
-      }
-
-      function getComments(video) {
-        var url = video.gd$comments.gd$feedLink.href + '?format=5&alt=json-in-script&callback=JSON_CALLBACK';
-        $http.jsonp(url)
-          .then(setComments);
-      }
-
-      function setComments(response) {
-        $scope.comments = response.data.feed.entry;
-        $scope.$$phase || $scope.$digest()
-      }
-
 //--$scope functions----------------------------------------------------------------------------------------------------
       $scope.search = function () {
+        $scope.$parent.searchTerm = $scope.searchTerm;
         var url =  'http://gdata.youtube.com/feeds/videos?vq=' + $scope.searchTerm + '&format=5&max-results=20&start-index=' + $scope.startIndex + '&alt=json-in-script&callback=JSON_CALLBACK';
         $http.jsonp(url)
           .then(setVideos);
-      };
-
-      $scope.searchRedirect = function () {
-        $location.path('/' + $scope.searchTerm);
-      };
-
-      $scope.getByID = function (id) {
-        var url = 'http://gdata.youtube.com/feeds/videos/' + id + '?format=5&alt=json-in-script&callback=JSON_CALLBACK';
-        $http.jsonp(url)
-          .then(setCurrentVideo);
-      };
-
-      $scope.setCurrent = function(id) {
-        $location.path('/video/' + id);
-      };
-
-      $scope.findByID = function (id) {
-        var video = _.find($scope.videos, function(val) {
-          return val.source === id;
-        });
-        return video;
       };
 
       $scope.page = function (start) {
@@ -118,20 +52,13 @@ define(function (require) {
         $scope.search();
       };
 
-      if ($routeParams.videoID) {
-        console.log($routeParams.videoID);
-        $scope.getByID($routeParams.videoID);
-      } else {
-        if ($routeParams.searchTerm)
-        {
-          $scope.searchTerm = $routeParams.searchTerm;
-        }
-        $scope.search();
-     }
+      if ($routeParams.searchTerm) {
+        $scope.$parent.searchTerm = $scope.searchTerm = $routeParams.searchTerm;
+      }
+      $scope.search();
     }
   );
   controller.$inject = ['$scope', '$location', '$routeParams', '$http'];
   return controller;
-
 
 });

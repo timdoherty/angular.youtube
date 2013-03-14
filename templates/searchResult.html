@@ -1,15 +1,15 @@
 <div>
     <div class="yt-lockup2-thumbnail">
         <a class="ux-thumb-wrap yt-uix-sessionlink yt-uix-contextlink contains-addto" href="#/video/{{video.source}}">
-        <span class="video-thumb ux-thumb yt-thumb-default-185 ">
-            <span class="yt-thumb-clip">
-                <span class="yt-thumb-clip-inner">
-                    <img width="185" ng-src="{{video.media$group.media$thumbnail[0].url}}" alt="Thumbnail">
-                    <span class="vertical-align"></span>
+            <span class="video-thumb ux-thumb yt-thumb-default-185 ">
+                <span class="yt-thumb-clip">
+                    <span class="yt-thumb-clip-inner">
+                        <img width="185" ng-src="{{video.media$group.media$thumbnail[0].url}}" alt="Thumbnail">
+                        <span class="vertical-align"></span>
+                    </span>
                 </span>
             </span>
-        </span>
-            <span class="video-time">16:01</span>
+            <span class="video-time">{{video.duration}}</span>
         </a>
     </div>
 
@@ -17,6 +17,7 @@
         <h5 class="yt-lockup2-title" style="margin:0;">
             <a href="#/video/{{video.source}}" title="{{video.title.$t}}">{{video.title.$t}}</a>
         </h5>
+
         <p class="yt-lockup2-meta"> by <strong>{{video.author[0].name.$t}}</strong>
             <span class="metadata-separator">•</span>
             1 year ago
