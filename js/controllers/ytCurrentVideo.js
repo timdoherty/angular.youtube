@@ -80,8 +80,6 @@ define(function (require) {
       }
     }]
   );
-//  controller.$inject = ['$scope', '$location', '$routeParams', '$http'];
-//  return controller;
 
-
+  return controller;
 });

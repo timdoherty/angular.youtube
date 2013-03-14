@@ -58,8 +58,7 @@ define(function (require) {
       $scope.search();
     }]
   );
-
 //  controller.$inject = ['$scope', '$location', '$routeParams', '$http'];
-//  return controller;
+  return controller;
 
 });
